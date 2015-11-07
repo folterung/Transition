@@ -11,6 +11,7 @@ function Transition(el) {
     __Transition.prototype.timingFunction = timingFunction;
     __Transition.prototype.index = index;
     __Transition.prototype.translate = translate;
+    __Transition.prototype.bezier = bezier;
 
     return new __Transition(el);
 
@@ -66,6 +67,12 @@ function Transition(el) {
 
     function index(val) {
         this.style.zIndex = val;
+
+        return this;
+    }
+
+    function bezier(a, b, c, d) {
+        this.timingFunction('cubic-bezier('+a+','+b+','+c+','+d+')');
 
         return this;
     }
