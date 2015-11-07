@@ -28,8 +28,8 @@ function Transition(el) {
     }
 
     function opacity(val) {
-        //TODO: Add filter for ie9 compatibility
         this.style.opacity = val;
+        this.style.filter = 'alpha(opacity='+val*100+')';
 
         return this;
     }
