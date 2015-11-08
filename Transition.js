@@ -23,8 +23,8 @@
 
     win.Transition = __Transition;
 
-    if(win.angular !== undefined && win.angular.Transition === undefined) {
-        win.angular.Transition = __Transition;
+    if(win.angular !== undefined) {
+        win.angular.Transition = win.Transition;
     }
 
     function fade(endVal) {
