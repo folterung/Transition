@@ -12,6 +12,7 @@ function Transition(el) {
     __Transition.prototype.index = index;
     __Transition.prototype.translate = translate;
     __Transition.prototype.bezier = bezier;
+    __Transition.prototype.matrix = matrix;
 
     return new __Transition(el);
 
@@ -75,5 +76,20 @@ function Transition(el) {
         this.timingFunction('cubic-bezier('+a+','+b+','+c+','+d+')');
 
         return this;
+    }
+
+    function matrix(w, r, s, h, x, y) {
+        var matVal = 'matrix('+ w +', '+ r +', '+ s +', '+ h +', '+ x +', '+ y +')';
+        var originVal = '0 0';
+
+        this.style.webkitTransformOrigin = originVal;
+        this.style.mozTransformOrigin = originVal;
+        this.style.oTransformOrigin = originVal;
+        this.style.transformOrigin = originVal;
+
+        this.style.webkitTransform = matVal;
+        this.style.mozTransform = matVal;
+        this.style.oTransform = matVal;
+        this.style.transform = matVal;
     }
 }
